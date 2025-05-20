@@ -26,7 +26,7 @@ import type {
   UseSuspenseQueryResult
 } from '@tanstack/react-query';
 
-import axios from 'axios';
+import * as axios from 'axios';
 import type {
   AxiosError,
   AxiosRequestConfig,
@@ -42,10 +42,6 @@ import type {
   Status
 } from './v1_operations.schemas';
 
-
-type AwaitedInput<T> = PromiseLike<T> | T;
-
-      type Awaited<O> = O extends AwaitedInput<infer T> ? T : never;
 
 
 
@@ -67,7 +63,7 @@ export const operationsListOperations = (
  ): Promise<AxiosResponse<ListOperationsResponse>> => {
     
     
-    return axios.get(
+    return axios.default.get(
       `http://localhost:3333/operations/v1/operations`,{
     ...options,
         params: {...params, ...options?.params},}
@@ -205,7 +201,7 @@ export const operationsGetOperation = (
  ): Promise<AxiosResponse<Operation>> => {
     
     
-    return axios.get(
+    return axios.default.get(
       `http://localhost:3333/operations/v1/operations/${operation}`,options
     );
   }
@@ -342,7 +338,7 @@ export const operationsDeleteOperation = (
  ): Promise<AxiosResponse<CosmicapisProtoEmpty>> => {
     
     
-    return axios.delete(
+    return axios.default.delete(
       `http://localhost:3333/operations/v1/operations/${operation}`,options
     );
   }
@@ -410,7 +406,7 @@ export const operationsCancelOperation = (
  ): Promise<AxiosResponse<Status>> => {
     
     
-    return axios.post(
+    return axios.default.post(
       `http://localhost:3333/operations/v1/operations/${operation}:cancel`,
       cancelOperationRequest,options
     );
