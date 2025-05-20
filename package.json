@@ -1,0 +1,16 @@
+{
+    "name": "@cosmic/scripts",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@faker-js/faker": "^9.3.0",
+        "@tanstack/react-query": "^5.76.1",
+        "axios": "^1.9.0",
+        "msw": "^2.8.4",
+        "orval": "^7.5.0",
+        "tslib": "^2.3.0"
+    },
+    "type": "module",
+    "main": "./index.js",
+    "typings": "./index.d.ts"
+}

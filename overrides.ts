@@ -1,0 +1,27 @@
+import { faker } from '@faker-js/faker';
+
+export const commonOverrides = {
+  '/currencyCode/': 'GBP',
+  '/units/': () => faker.number.int({ min: 100000, max: 1000000 }),
+  '/nanos/': () => faker.number.int({ min: 0, max: 999999999 }),
+  '/emailAddress/': () => faker.internet.email(),
+  '/day/': () => faker.number.int({ min: 1, max: 29 }),
+  '/month/': () => faker.number.int({ min: 1, max: 11 }),
+  '/year/': () => faker.number.int({ min: 2020, max: 2030 }),
+  '/building/': () => faker.location.buildingNumber(),
+  '/streetName/': () => faker.location.street(),
+  '/town/': () => faker.location.city(),
+  '/city/': () => faker.location.city(),
+  '/county/': () => faker.location.county(),
+  '/postalCode/': () => faker.location.zipCode(),
+  '/region/': 'GBR',
+  '/forename/': () => faker.person.firstName(),
+  '/partnerName/': () => faker.person.firstName(),
+  '/middleNames/': () => faker.person.firstName(),
+  '/surname/': () => faker.person.lastName(),
+  '/totalAssets/': () => faker.number.int({ min: 0, max: 10 }),
+  '/totalLiabilities/': () => faker.number.int({ min: 0, max: 10 }),
+  '/applicationType/': 'secured-loan',
+  '/dependants/': () => faker.number.int({ min: 0, max: 3 }),
+  '/sizeKilobytes/': () => faker.number.int({ min: 5, max: 1000 }),
+};
